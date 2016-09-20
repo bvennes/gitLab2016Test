@@ -28,6 +28,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     TextView textEditor;
     String string;
     String newStringExperiement2;
+    String testBranchExperiment;
     TextView editTextview;
     Button reverse;
     Button clear;
