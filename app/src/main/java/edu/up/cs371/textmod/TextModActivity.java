@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class TextModActivity extends ActionBarActivity implements View.OnClickListener{
 
     TextView textEditor;
-    privte TextView editTextview;
+    TextView editTextview;
     Button reverse;
     Button clear;
     Button upper;
@@ -131,17 +131,6 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
             }
             editTextview.setText(newString);
         }
-        if (v.getId() == R.id.button) {
-            textEditor.setText("");
-        }
-        if (v.getId() == R.id.button6) {
-            String previous = (String) textEditor.getText();
-            textEditor.setText(previous.toUpperCase());
-        }
-    }
-
-    @Override
-    public void onClick(View v) {
         if (v.getId() == R.id.button) {
             textEditor.setText("");
         }
