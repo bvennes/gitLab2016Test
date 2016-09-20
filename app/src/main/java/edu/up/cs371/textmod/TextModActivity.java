@@ -26,6 +26,7 @@ import java.util.ArrayList;
 public class TextModActivity extends ActionBarActivity implements View.OnClickListener{
 
     TextView textEditor;
+    String string;
     TextView editTextview;
     Button reverse;
     Button clear;
