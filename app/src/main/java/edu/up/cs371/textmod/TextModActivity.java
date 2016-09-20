@@ -16,11 +16,18 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 
-public class TextModActivity extends ActionBarActivity {
+public class TextModActivity extends ActionBarActivity implements View.OnClickListener {
+
+    private TextView editTextview;
+
+    private Button reverse;
 
     // array-list that contains our images to display
     private ArrayList<Bitmap> images;
@@ -70,6 +77,11 @@ public class TextModActivity extends ActionBarActivity {
             images.add(img);
         }
 
+        editTextview = (TextView)findViewById(R.id.editText);
+
+        reverse = (Button)findViewById(R.id.button4);
+        reverse.setOnClickListener(this);
+
         // define a listener for the spinner
         spinner.setOnItemSelectedListener(new MySpinnerListener());
 
@@ -103,6 +115,18 @@ public class TextModActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.button4) {
+            String newString = "";
+            String currentString = (String)editTextview.getText();
+            for(int i = currentString.length(); i > 0; i--) {
+                newString = newString + currentString.substring(i - 1);
+            }
+            editTextview.setText(newString);
+        }
+    }
+
     /**
      * class that handles our spinner's selection events
      */
@@ -117,6 +141,7 @@ public class TextModActivity extends ActionBarActivity {
                                    int position, long id) {
             // set the image to the one corresponding to the index selected by the spinner
             imageView.setImageBitmap(images.get(position));
+            editTextview.setText(editTextview.getText() + getResources().getStringArray(R.array.spinner_names)[position]);
         }
 
         /**
