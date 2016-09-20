@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/cs371-GitLabStarter-master.iml" filepath="$PROJECT_DIR$/cs371-GitLabStarter-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/gitLab2016Test.iml" filepath="$PROJECT_DIR$/gitLab2016Test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gitLab2016Test2.iml" filepath="$PROJECT_DIR$/gitLab2016Test2.iml" />
     </modules>
   </component>
 </project>
