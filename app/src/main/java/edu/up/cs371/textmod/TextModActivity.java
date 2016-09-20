@@ -23,11 +23,13 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class TextModActivity extends ActionBarActivity implements View.OnClickListener {
+public class TextModActivity extends ActionBarActivity implements View.OnClickListener{
 
-    private TextView editTextview;
-
-    private Button reverse;
+    TextView textEditor;
+    TextView editTextview;
+    Button reverse;
+    Button clear;
+    Button upper;
 
     // array-list that contains our images to display
     private ArrayList<Bitmap> images;
@@ -85,6 +87,10 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         // define a listener for the spinner
         spinner.setOnItemSelectedListener(new MySpinnerListener());
 
+        textEditor = (TextView) findViewById(R.id.editText);
+        clear = (Button) findViewById(R.id.button);
+        clear.setOnClickListener(this);
+        upper = (Button) findViewById(R.id.button6);
     }
 
     /**
@@ -124,6 +130,13 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
                 newString = newString + currentString.substring(i - 1);
             }
             editTextview.setText(newString);
+        }
+        if (v.getId() == R.id.button) {
+            textEditor.setText("");
+        }
+        if (v.getId() == R.id.button6) {
+            String previous = (String) textEditor.getText();
+            textEditor.setText(previous.toUpperCase());
         }
     }
 
