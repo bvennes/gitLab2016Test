@@ -26,6 +26,8 @@ import java.util.ArrayList;
 public class TextModActivity extends ActionBarActivity implements View.OnClickListener{
 
     TextView textEditor;
+    privte TextView editTextview;
+    Button reverse;
     Button clear;
     Button upper;
 
@@ -77,6 +79,11 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
             images.add(img);
         }
 
+        editTextview = (TextView)findViewById(R.id.editText);
+
+        reverse = (Button)findViewById(R.id.button4);
+        reverse.setOnClickListener(this);
+
         // define a listener for the spinner
         spinner.setOnItemSelectedListener(new MySpinnerListener());
 
@@ -116,6 +123,25 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
+        if (v.getId() == R.id.button4) {
+            String newString = "";
+            String currentString = (String)editTextview.getText();
+            for(int i = currentString.length(); i > 0; i--) {
+                newString = newString + currentString.substring(i - 1);
+            }
+            editTextview.setText(newString);
+        }
+        if (v.getId() == R.id.button) {
+            textEditor.setText("");
+        }
+        if (v.getId() == R.id.button6) {
+            String previous = (String) textEditor.getText();
+            textEditor.setText(previous.toUpperCase());
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
         if (v.getId() == R.id.button) {
             textEditor.setText("");
         }
@@ -139,6 +165,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
                                    int position, long id) {
             // set the image to the one corresponding to the index selected by the spinner
             imageView.setImageBitmap(images.get(position));
+            editTextview.setText(editTextview.getText() + getResources().getStringArray(R.array.spinner_names)[position]);
         }
 
         /**
